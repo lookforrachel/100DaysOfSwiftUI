@@ -14,35 +14,68 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List{
-                ForEach (habits.items) { item in
-                    NavigationLink {
-                        if let index = habits.items.firstIndex(of: item){
-                            DetailView(habits: habits, item: item, index: index)
-                        }
-                    } label: {
-                        HStack {
-                            VStack(alignment:.leading){
-                                Text(item.name)
-                                    .font(.headline)
+                Section(header: Text("Build")){
+                    ForEach (habits.items.filter {$0.type == "Build"}) { item in
+                        NavigationLink {
+                            if let index = habits.items.firstIndex(of: item){
+                                DetailView(habits: habits, item: item, index: index)
                             }
-                            
-                            Spacer()
-                            VStack{
-                                Button("\(item.count) / \(item.amount)"){
-                                    
+                        } label: {
+                            HStack {
+                                VStack(alignment:.leading){
+                                    Text(item.name)
+                                        .font(.headline)
+                                }
+                                
+                                Spacer()
+                                VStack{
+                                    Button("\(item.count) / \(item.amount)"){
+                                    }
+                                }
+                                .onTapGesture {
+                                    var counter = item.count
+                                    counter += 1
+                                    if let index = habits.items.firstIndex(of: item) {
+                                    habits.items[index].count = counter
+                                    }
                                 }
                             }
-                            .onTapGesture {
-                                var counter = item.count
-                                counter += 1
-                                if let index = habits.items.firstIndex(of: item) {
-                                habits.items[index].count = counter
-                                }
-                            }
                         }
-            }
+                    }
+                    .onDelete(perform: removeItems)
                 }
-                .onDelete(perform: removeItems)
+                
+                Section(header: Text("Break")) {
+                    ForEach (habits.items.filter {$0.type == "Break"}) { item in
+                        NavigationLink {
+                            if let index = habits.items.firstIndex(of: item){
+                                DetailView(habits: habits, item: item, index: index)
+                            }
+                        } label: {
+                            HStack {
+                                VStack(alignment:.leading){
+                                    Text(item.name)
+                                        .font(.headline)
+                                }
+                                
+                                Spacer()
+                                VStack{
+                                    Button("\(item.count) / \(item.amount)"){
+                                    }
+                                    .foregroundColor(item.count > item.amount ? .red : .blue)
+                                }
+                                .onTapGesture {
+                                    var counter = item.count
+                                    counter += 1
+                                    if let index = habits.items.firstIndex(of: item) {
+                                    habits.items[index].count = counter
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .onDelete(perform: removeItems)
+                }
             }
             .navigationTitle("Habits")
             .toolbar{
