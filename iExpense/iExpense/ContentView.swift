@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
 
     @StateObject var expenses = Expenses()
+    
+    
     @State private var showingAddExpense = false
     var myCurrency = Locale.current.currencyCode
 

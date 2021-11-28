@@ -84,8 +84,8 @@ struct MissionView: View {
                             .padding(.bottom, 5)
                     }
                     .padding(.horizontal)
-                    
-                    CrewView(mission: mission, astronauts: astronauts)
+                        crewV
+//                    CrewView(mission: mission, astronauts: astronauts)
                 }
                 .padding(.bottom)
             }

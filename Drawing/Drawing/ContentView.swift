@@ -34,7 +34,7 @@ struct Arrow: InsettableShape {
 }
 
 struct ContentView: View {
-    @State private var lineThickness = 10.0
+    @State private var lineThickness = 0.1
 
     var body: some View {
         
@@ -44,7 +44,7 @@ struct ContentView: View {
                 .strokeBorder(.blue, lineWidth: lineThickness)
                 .frame(width: 300, height: 300)
 
-                Slider(value: $lineThickness)
+            Slider(value: $lineThickness, in: 0.0...10.0, step: 0.1)
                     .padding()
         }
 
