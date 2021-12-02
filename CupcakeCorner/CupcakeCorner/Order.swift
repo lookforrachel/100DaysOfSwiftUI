@@ -34,7 +34,7 @@ class Order: ObservableObject, Codable {
     @Published var postalCode = ""
     
     var hasValidAddress: Bool {
-        if name.isEmpty || streetAddress.isEmpty || city.isEmpty || postalCode.isEmpty {
+        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || postalCode.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return false
         }
         return true
