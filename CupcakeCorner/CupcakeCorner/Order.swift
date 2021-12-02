@@ -6,15 +6,8 @@
 //
 
 import SwiftUI
-class Order: ObservableObject {
-    @Published var currentOrder: MyOrder
-    
-    init() {
-        self.currentOrder = MyOrder()
-    }
-}
-    
-    struct MyOrder: Codable {
+
+    struct Order: Codable {
 //        enum CodingKeys: CodingKey {
 //            case type, quantity, extraFrosting, addSprinkles, name, streetAddress, city, postalCode
 //        }

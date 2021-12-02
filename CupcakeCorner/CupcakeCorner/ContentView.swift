@@ -10,15 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var order = Order()
+    @StateObject var order = UserOrder()
     
     var body: some View {
         NavigationView{
             Form {
                 Section {
                     Picker("Flavour", selection: $order.currentOrder.type) {
-                        ForEach(MyOrder.types.indices) {
-                            Text(MyOrder.types[$0])
+                        ForEach(Order.types.indices) {
+                            Text(Order.types[$0])
                         }
                     }
                     
