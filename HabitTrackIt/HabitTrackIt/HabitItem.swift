@@ -9,9 +9,9 @@ import Foundation
 
 struct HabitItem: Identifiable, Codable, Equatable {
     var id = UUID()
-    var name: String
-    var type: String
-    var description: String
-    var amount: Int
+    let name: String
+    let type: String
+    let description: String
+    let amount: Int
     var count: Int
 }
