@@ -32,9 +32,8 @@ struct DetailView: View {
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        DetailView()
-//    }
-//}
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(habits: Habits(), item: HabitItem(name: "", type: "", description: "", amount: 0, count: 0), index: 0)
+    }
+}
