@@ -18,11 +18,11 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             ZStack(alignment: .bottomTrailing) {
-                Image(book.genre ?? "Fantasy")
+                Image(book.genre ?? "Poetry")
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
+                Text(book.genre?.uppercased() ?? "UNKNOWN")
                     .font(.caption)
                     .fontWeight(.black)
                     .padding(8)
@@ -38,6 +38,8 @@ struct DetailView: View {
             
             Text(book.review ?? "No Review")
                 .padding()
+            
+            Text(book.formattedDate ?? "-")
             
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)
@@ -63,7 +65,7 @@ struct DetailView: View {
     func deleteBook() {
         moc.delete(book)
         
-//        try? moc.save()
+        try? moc.save()
         dismiss()
     }
 }
