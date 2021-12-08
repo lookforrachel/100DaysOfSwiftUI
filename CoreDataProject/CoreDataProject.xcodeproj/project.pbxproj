@@ -13,6 +13,9 @@
 		EE205DC52760284700975D49 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE205DC42760284700975D49 /* Preview Assets.xcassets */; };
 		EE205DCC276028A400975D49 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE205DCB276028A400975D49 /* DataController.swift */; };
 		EE205DCF276029E900975D49 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE205DCD276029E900975D49 /* CoreDataProject.xcdatamodeld */; };
+		EE205DD127603CE100975D49 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE205DD027603CE100975D49 /* FilteredList.swift */; };
+		EE205DD82760437900975D49 /* Singer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE205DD62760437900975D49 /* Singer+CoreDataClass.swift */; };
+		EE205DD92760437900975D49 /* Singer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE205DD72760437900975D49 /* Singer+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		EE205DC42760284700975D49 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE205DCB276028A400975D49 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		EE205DCE276029E900975D49 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		EE205DD027603CE100975D49 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+		EE205DD62760437900975D49 /* Singer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		EE205DD72760437900975D49 /* Singer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Singer+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +61,11 @@
 		EE205DBC2760284500975D49 /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				EE205DD62760437900975D49 /* Singer+CoreDataClass.swift */,
+				EE205DD72760437900975D49 /* Singer+CoreDataProperties.swift */,
 				EE205DBD2760284500975D49 /* CoreDataProjectApp.swift */,
 				EE205DBF2760284500975D49 /* ContentView.swift */,
+				EE205DD027603CE100975D49 /* FilteredList.swift */,
 				EE205DCB276028A400975D49 /* DataController.swift */,
 				EE205DCD276029E900975D49 /* CoreDataProject.xcdatamodeld */,
 				EE205DC12760284700975D49 /* Assets.xcassets */,
@@ -143,10 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE205DD92760437900975D49 /* Singer+CoreDataProperties.swift in Sources */,
 				EE205DC02760284500975D49 /* ContentView.swift in Sources */,
 				EE205DCC276028A400975D49 /* DataController.swift in Sources */,
+				EE205DD127603CE100975D49 /* FilteredList.swift in Sources */,
 				EE205DBE2760284500975D49 /* CoreDataProjectApp.swift in Sources */,
 				EE205DCF276029E900975D49 /* CoreDataProject.xcdatamodeld in Sources */,
+				EE205DD82760437900975D49 /* Singer+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
