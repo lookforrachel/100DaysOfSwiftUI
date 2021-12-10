@@ -17,8 +17,22 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         }
     }
     
-    init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
-        _fetchrequest = FetchRequest<T>(sortDescriptors: [], predicate: NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue))
+    enum predicate: String {
+        case beginsWith = "BEGINSWITH"
+        case contains = "CONTAINS[c]"
+        
+    }
+    
+//    predicate.beginsWith {
+//        return "%K BEGINSWITH %@"
+//    }
+    
+    init(filterKey: String, filterValue: String, sortValues: NSSortDescriptor, @ViewBuilder content: @escaping (T) -> Content) {
+        _fetchrequest = FetchRequest<T>(sortDescriptors: [sortValues], predicate: NSPredicate(format: "%K \(predicate.contains) %@", filterKey, filterValue))
+        
+        
+
+        
         self.content = content
     }
 }
