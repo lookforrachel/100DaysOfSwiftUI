@@ -11,24 +11,30 @@ struct DetailView: View {
     let user: User
     
     var body: some View {
-        VStack{
-            Section(user.name) {
+        VStack(alignment: .leading){
+                Text(user.name)
+                    .font(.title.bold())
                 Text("Age: \(user.age)")
-                Text(user.company)
-                Text(user.email)
-            }
+                Text("Company: \(user.company)")
+                Text("Email: \(user.email)")
             
-            Section("Friends") {
+            Rectangle()
+                .frame(height: 2)
+                .padding()
+            
+            Text("Friends")
+                .font(.headline)
                 ForEach(user.friends) { friend in
                     Text(friend.name)
                 }
-            }
+            
         }
+        .padding(.horizontal)
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(user: User())
-//    }
-//}
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(user: User(id: "1111111", isActive: true, name: "John Appleseed", age: 20, company: "Apple", email: "john.appleseed@mac.com", address: "111 Apple St", about: "sfsdfdsfsd", registered: "xxx", tags: ["tag 1", "tag 2", "tag 3", "tag 4"], friends: [Friend(id: "123143", name: "Steve Jobs")]))
+    }
+}
