@@ -20,47 +20,46 @@ struct ContentView: View {
     var body: some View {
 
             NavigationView {
-                List(fetchedUsers) { user in
-                    NavigationLink {
-                        DetailView(user: user)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            Text(user.wrappedName)
-                                .font(.headline)
-                            Text(user.wrappedCompany)
+                VStack {
+                    List(fetchedUsers) { user in
+                        NavigationLink {
+                            DetailView(user: user)
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(user.wrappedName)
+                                    .font(.headline)
+                                Text(user.wrappedCompany)
+                            }
                         }
                     }
-                }
-                .task {
-                    if users.isEmpty {
-                        await loadData()
-                        saveData(data: users)
-                        print(fetchedUsers.count)
+                    .task {
+                            if users.isEmpty {
+                                await loadData()
+                                print("Users array has: \(users.count) users")
+
+                                if fetchedUsers.isEmpty {
+                                    saveData(data: users)
+                                    print("Core Data is empty: \(fetchedUsers.count)")
+                                }
+                            }
                     }
-                    
+                    Button("No. of users in array"){
+                        print("No. of users in array: \(users.count)")
+                    }
+
+                    Button("No. of users in Core Data"){
+                        print("No. of users in Core Data: \(fetchedUsers.count)")
+                    }
                 }
-                
             }
         
     }
     
-    @MainActor func loadData() async {
+    func loadData() async {
             guard let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json") else {
                 print("Invalid URL")
                 return
             }
-            
-    //        do {
-    //            let (data, _) = try await URLSession.shared.data(from: url)
-    //
-    //            if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
-    //                users = decodedResponse.users
-    //            }
-    //
-    //        } catch let jsonError as NSError {
-    //            print("Invalid Data \(jsonError.localizedDescription)")
-    //        }
-            
 
               do {
                 let (data, _) = try await URLSession.shared.data(from: url)
@@ -68,10 +67,10 @@ struct ContentView: View {
                 let decodedResponse = try JSONDecoder().decode([UserStruct].self, from: data)
                 DispatchQueue.main.async {
                   self.users = decodedResponse
+                    print("\(self.users.count) users just saved in array ")
+                    saveData(data: users)
                  }
-    //          } catch let jsonError as NSError {
-    //            print("JSON decode failed: \(jsonError.localizedDescription)")
-    //          }
+                  
               } catch DecodingError.keyNotFound(let key, let context) {
                   Swift.print("could not find key \(key) in JSON: \(context.debugDescription)")
               } catch DecodingError.valueNotFound(let type, let context) {
@@ -83,13 +82,17 @@ struct ContentView: View {
               } catch let error as NSError {
                   NSLog("Error in read(from:ofType:) domain= \(error.domain), description= \(error.localizedDescription)")
               }
+
               return
         
     }
     
-    @MainActor func saveData(data: [UserStruct]) {
+    func saveData(data: [UserStruct]) {
         
-            for user in users {
+        print("saving data into Core Data")
+
+            for user in data {
+                print("saving \(user)")
                 let cachedUser = CachedUser(context: moc)
                 cachedUser.id = user.id
                 cachedUser.isActive = user.isActive
