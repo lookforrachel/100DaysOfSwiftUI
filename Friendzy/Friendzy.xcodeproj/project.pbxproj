@@ -14,6 +14,14 @@
 		EE66636F2764055300C0EF7F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE66636E2764055300C0EF7F /* User.swift */; };
 		EE66637127640C7800C0EF7F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE66637027640C7800C0EF7F /* Friend.swift */; };
 		EE66637327644AED00C0EF7F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE66637227644AED00C0EF7F /* DetailView.swift */; };
+		EE90EEEE276523F500FA00CB /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEE8276523F500FA00CB /* Tag+CoreDataClass.swift */; };
+		EE90EEEF276523F500FA00CB /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEE9276523F500FA00CB /* Tag+CoreDataProperties.swift */; };
+		EE90EEF6276545A500FA00CB /* CachedFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEF2276545A500FA00CB /* CachedFriend+CoreDataClass.swift */; };
+		EE90EEF7276545A500FA00CB /* CachedFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEF3276545A500FA00CB /* CachedFriend+CoreDataProperties.swift */; };
+		EE90EEF8276545A500FA00CB /* CachedUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEF4276545A500FA00CB /* CachedUser+CoreDataClass.swift */; };
+		EE90EEF9276545A500FA00CB /* CachedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEF5276545A500FA00CB /* CachedUser+CoreDataProperties.swift */; };
+		EE90EEFB2765728F00FA00CB /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE90EEFA2765728F00FA00CB /* DataController.swift */; };
+		EEE209132765109000149447 /* Friendzy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEE209112765109000149447 /* Friendzy.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +33,14 @@
 		EE66636E2764055300C0EF7F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE66637027640C7800C0EF7F /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		EE66637227644AED00C0EF7F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EE90EEE8276523F500FA00CB /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EE90EEE9276523F500FA00CB /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EE90EEF2276545A500FA00CB /* CachedFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EE90EEF3276545A500FA00CB /* CachedFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EE90EEF4276545A500FA00CB /* CachedUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EE90EEF5276545A500FA00CB /* CachedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EE90EEFA2765728F00FA00CB /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		EEE209122765109000149447 /* Friendzy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Friendzy.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +74,18 @@
 			isa = PBXGroup;
 			children = (
 				EE6663602764032200C0EF7F /* FriendzyApp.swift */,
+				EE90EEFA2765728F00FA00CB /* DataController.swift */,
 				EE6663622764032200C0EF7F /* ContentView.swift */,
 				EE66637227644AED00C0EF7F /* DetailView.swift */,
+				EE90EEF4276545A500FA00CB /* CachedUser+CoreDataClass.swift */,
+				EE90EEF5276545A500FA00CB /* CachedUser+CoreDataProperties.swift */,
+				EE90EEF2276545A500FA00CB /* CachedFriend+CoreDataClass.swift */,
+				EE90EEF3276545A500FA00CB /* CachedFriend+CoreDataProperties.swift */,
+				EE90EEE8276523F500FA00CB /* Tag+CoreDataClass.swift */,
+				EE90EEE9276523F500FA00CB /* Tag+CoreDataProperties.swift */,
 				EE66636E2764055300C0EF7F /* User.swift */,
 				EE66637027640C7800C0EF7F /* Friend.swift */,
+				EEE209112765109000149447 /* Friendzy.xcdatamodeld */,
 				EE6663642764032400C0EF7F /* Assets.xcassets */,
 				EE6663662764032400C0EF7F /* Preview Content */,
 			);
@@ -146,10 +170,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE90EEF9276545A500FA00CB /* CachedUser+CoreDataProperties.swift in Sources */,
+				EEE209132765109000149447 /* Friendzy.xcdatamodeld in Sources */,
+				EE90EEF8276545A500FA00CB /* CachedUser+CoreDataClass.swift in Sources */,
+				EE90EEF6276545A500FA00CB /* CachedFriend+CoreDataClass.swift in Sources */,
 				EE6663632764032200C0EF7F /* ContentView.swift in Sources */,
 				EE6663612764032200C0EF7F /* FriendzyApp.swift in Sources */,
 				EE66636F2764055300C0EF7F /* User.swift in Sources */,
+				EE90EEEE276523F500FA00CB /* Tag+CoreDataClass.swift in Sources */,
+				EE90EEF7276545A500FA00CB /* CachedFriend+CoreDataProperties.swift in Sources */,
 				EE66637327644AED00C0EF7F /* DetailView.swift in Sources */,
+				EE90EEEF276523F500FA00CB /* Tag+CoreDataProperties.swift in Sources */,
+				EE90EEFB2765728F00FA00CB /* DataController.swift in Sources */,
 				EE66637127640C7800C0EF7F /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +385,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EEE209112765109000149447 /* Friendzy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EEE209122765109000149447 /* Friendzy.xcdatamodel */,
+			);
+			currentVersion = EEE209122765109000149447 /* Friendzy.xcdatamodel */;
+			path = Friendzy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EE6663552764032200C0EF7F /* Project object */;
 }
