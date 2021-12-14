@@ -10,12 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var image: Image?
+    @State private var filterAmount = 0.0
     
     var body: some View {
+        VStack {
+            Image("Chickens")
+        }
             VStack {
                 image?
                     .resizable()
                     .scaledToFit()
+//                Slider(value: $filterAmount, in: 0...10)
             }
             .onAppear(perform: loadImage)
         }
@@ -24,10 +29,10 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         
         let context = CIContext()
-        let currentFilter = CIFilter.pixellate()
+        let currentFilter = CIFilter.crystallize()
         currentFilter.inputImage = beginImage
         
-        let amount = 1.0
+        let amount = 15.0
         let inputKeys = currentFilter.inputKeys
         
         if inputKeys.contains(kCIInputIntensityKey) {
