@@ -22,6 +22,8 @@ struct ContentView: View {
     @State private var radiusKey = false
     @State private var filterScale = 1.0
     @State private var scaleKey = false
+    @State private var filterAngle = 1.0
+    @State private var angleKey = false
     
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     let context = CIContext()
@@ -72,6 +74,14 @@ struct ContentView: View {
                         }
                         .padding(.vertical)
                     }
+                    if angleKey {
+                        HStack {
+                            Text("Angle")
+                            Slider(value: $filterAngle)
+                                .onChange(of: filterAngle) { _ in applyProcessing() }
+                        }
+                        .padding(.vertical)
+                    }
                 }
                 
                 HStack {
@@ -94,13 +104,18 @@ struct ContentView: View {
                 ImagePicker(image: $inputImage)
             }
             .confirmationDialog("Select a Filter", isPresented: $showingFilterSheet) {
-                Button("Crystallize"){ setFilter(CIFilter.crystallize()) }
-                Button("Edges"){ setFilter(CIFilter.edges()) }
-                Button("Gaussian Blur"){ setFilter(CIFilter.gaussianBlur()) }
-                Button("Pixellate"){ setFilter(CIFilter.pixellate()) }
-                Button("Sepia Tone"){ setFilter(CIFilter.sepiaTone()) }
+                Section{
+                    Button("Crystallize"){ setFilter(CIFilter.crystallize()) }
+                    Button("Edges"){ setFilter(CIFilter.edges()) }
+                    Button("Gaussian Blur"){ setFilter(CIFilter.gaussianBlur()) }
+                    Button("Pixellate"){ setFilter(CIFilter.pixellate()) }
+                    Button("Sepia Tone"){ setFilter(CIFilter.sepiaTone()) }
+                }
                 Button("Unsharp Mask"){ setFilter(CIFilter.unsharpMask()) }
                 Button("Vignette"){ setFilter(CIFilter.vignette()) }
+                Button("Kaleidoscope"){ setFilter(CIFilter.kaleidoscope()) }
+                Button("Pointilize"){ setFilter(CIFilter.pointillize()) }
+                Button("Gloom"){ setFilter(CIFilter.gloom()) }
                 Button("Cancel", role: .cancel){ }
             } message: {
                 Text("")
@@ -130,6 +145,11 @@ struct ContentView: View {
             scaleKey = true
             currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
         }
+        
+        if inputKeys.contains(kCIInputAngleKey) {
+            angleKey = true
+            currentFilter.setValue(filterAngle, forKey: kCIInputAngleKey)
+        }
                 
         guard let outputImage = currentFilter.outputImage else { return }
         
@@ -145,6 +165,7 @@ struct ContentView: View {
         intensityKey = false
         radiusKey = false
         scaleKey = false
+        angleKey = false
         
         currentFilter = filter
         loadImage()
