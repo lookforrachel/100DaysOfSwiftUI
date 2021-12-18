@@ -15,6 +15,14 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State private var processedImage: UIImage?
     
+    @State private var hasImageToSave = false
+    
+    @State private var intensityKey = false
+    @State private var filterRadius = 1.0
+    @State private var radiusKey = false
+    @State private var filterScale = 1.0
+    @State private var scaleKey = false
+    
     @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
     let context = CIContext()
     
@@ -37,14 +45,34 @@ struct ContentView: View {
                 .onTapGesture {
                     showingImagePicker = true
                 }
-                HStack {
-                    Text("Intensity")
-                    Slider(value: $filterIntensity)
-                        .onChange(of: filterIntensity) { _ in applyProcessing() }
-                }
-                .padding(.vertical)
 
-                
+                VStack {
+                    if intensityKey {
+                        HStack {
+                            Text("Intensity")
+                            Slider(value: $filterIntensity)
+                                .onChange(of: filterIntensity) { _ in applyProcessing() }
+                        }
+                        .padding(.vertical)
+
+                    }
+                    if radiusKey {
+                        HStack {
+                            Text("Radius")
+                            Slider(value: $filterRadius)
+                                .onChange(of: filterRadius) { _ in applyProcessing() }
+                        }
+                        .padding(.vertical)
+                    }
+                    if scaleKey {
+                        HStack {
+                            Text("Scale")
+                            Slider(value: $filterScale)
+                                .onChange(of: filterScale) { _ in applyProcessing() }
+                        }
+                        .padding(.vertical)
+                    }
+                }
                 
                 HStack {
                     Button("Change filter"){
@@ -54,7 +82,10 @@ struct ContentView: View {
                     Spacer()
                     
                     Button("Save", action: save)
+                        .disabled(image == nil)
+
                 }
+
             }
             .padding([.horizontal, .bottom])
             .navigationTitle("Instafilter")
@@ -81,19 +112,23 @@ struct ContentView: View {
         let beginImage = CIImage(image: inputImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         applyProcessing()
+        hasImageToSave = true
     }
     
     func applyProcessing() {
         let inputKeys = currentFilter.inputKeys
         
         if inputKeys.contains(kCIInputIntensityKey) {
+            intensityKey = true
             currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
         }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+            radiusKey = true
+            currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey)
         }
         if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
+            scaleKey = true
+            currentFilter.setValue(filterScale * 10, forKey: kCIInputScaleKey)
         }
                 
         guard let outputImage = currentFilter.outputImage else { return }
@@ -106,6 +141,11 @@ struct ContentView: View {
     }
     
     func setFilter(_ filter: CIFilter) {
+        
+        intensityKey = false
+        radiusKey = false
+        scaleKey = false
+        
         currentFilter = filter
         loadImage()
     }
