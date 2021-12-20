@@ -11,6 +11,7 @@
 		EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08E41E276E51290059BAC8 /* ContentView.swift */; };
 		EE08E421276E512A0059BAC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE08E420276E512A0059BAC8 /* Assets.xcassets */; };
 		EE08E424276E512A0059BAC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE08E423276E512A0059BAC8 /* Preview Assets.xcassets */; };
+		EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		EE08E41E276E51290059BAC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE08E420276E512A0059BAC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE08E423276E512A0059BAC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				EE08E41C276E51290059BAC8 /* BucketListApp.swift */,
 				EE08E41E276E51290059BAC8 /* ContentView.swift */,
+				EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */,
 				EE08E420276E512A0059BAC8 /* Assets.xcassets */,
 				EE08E422276E512A0059BAC8 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */,
 				EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */,
 				EE08E41D276E51290059BAC8 /* BucketListApp.swift in Sources */,
 			);

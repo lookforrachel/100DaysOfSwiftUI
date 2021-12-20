@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
 
+    @State private var message: String = FileManager.default.decode("message.txt")
     
     var body: some View {
         Text("Hello World")
             .onTapGesture {
+                
                 let str = "Test message"
                 let url = getDocumentDirectory().appendingPathComponent("message.txt")
                 do {
@@ -24,6 +26,9 @@ struct ContentView: View {
                     print(error.localizedDescription)
                 }
             }
+        
+        Text(message)
+        
     
 
     }
