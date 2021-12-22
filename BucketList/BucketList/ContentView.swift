@@ -8,29 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @State private var message: String = FileManager.default.decode("message.txt")
+    
+    @State private var postsUnavailable = true
     
     var body: some View {
-        Text("Hello World")
-            .onTapGesture {
-                
-                let str = "Test message"
-                let url = getDocumentDirectory().appendingPathComponent("message.txt")
-                do {
-                    try str.write(to:url, atomically: true, encoding: .utf8)
-                    
-                    let input = try String(contentsOf: url)
-                    print(input)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        
-        Text(message)
-        
-    
+        NavigationView {
+            VStack{
+                Text("Save Data")
+                    .onTapGesture {
+                        let apiResponse = """
+                                          [
+                                              {
+                                                  "title": "Easy Reading and Writing String to and from file in Swift",
+                                                  "date": "2021-05-11"
+                                              },
+                                              {
+                                                  "title": "Post 2",
+                                                  "date": "2021-05-04"
+                                              }
+                                          ]
+                                          """
+                        let url = getDocumentDirectory().appendingPathComponent("blog.txt")
+                        do {
+                            try apiResponse.write(to:url, atomically: true, encoding: .utf8)
+                            
+                            let input = try String(contentsOf: url)
+                            print(input)
+                            postsUnavailable = false
 
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                    NavigationLink {
+                        BlogView()
+                    } label: {
+                        Text("Show Blog Posts")
+                    }.disabled(postsUnavailable)
+                
+                
+            }
+        }
     }
     
     func getDocumentDirectory() -> URL {
@@ -39,8 +57,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

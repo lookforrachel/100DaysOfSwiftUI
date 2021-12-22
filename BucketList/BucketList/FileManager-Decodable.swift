@@ -8,15 +8,21 @@
 import Foundation
 
 extension FileManager {
-    func decode(_ file: String) -> String {
+    func decode<T: Codable>(_ file: String) -> T {
         
         let url = getDocumentDirectory().appendingPathComponent(file)
         
-        guard let data = try? String(contentsOf: url) else {
-            fatalError("Failed to load \(file) from file directory")
+        guard let data = try? Data(contentsOf: url) else {
+             fatalError("Failed to load \(file) from file directory")
         }
         
-        return data
+        let decoder = JSONDecoder()
+        
+        guard let loaded = try? decoder.decode(T.self, from: data) else {
+            fatalError("Failed to decode \(file) from file directory")
+        }
+        
+        return loaded
 
     }
     

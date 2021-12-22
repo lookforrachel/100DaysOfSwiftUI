@@ -12,6 +12,8 @@
 		EE08E421276E512A0059BAC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE08E420276E512A0059BAC8 /* Assets.xcassets */; };
 		EE08E424276E512A0059BAC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE08E423276E512A0059BAC8 /* Preview Assets.xcassets */; };
 		EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */; };
+		EE214A35277397C4009F54C8 /* BlogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE214A34277397C4009F54C8 /* BlogView.swift */; };
+		EE2F074C2772CADB00898241 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F074B2772CADB00898241 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		EE08E420276E512A0059BAC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE08E423276E512A0059BAC8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Decodable.swift"; sourceTree = "<group>"; };
+		EE214A34277397C4009F54C8 /* BlogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogView.swift; sourceTree = "<group>"; };
+		EE2F074B2772CADB00898241 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			children = (
 				EE08E41C276E51290059BAC8 /* BucketListApp.swift */,
 				EE08E41E276E51290059BAC8 /* ContentView.swift */,
+				EE214A34277397C4009F54C8 /* BlogView.swift */,
+				EE2F074B2772CADB00898241 /* Post.swift */,
 				EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */,
 				EE08E420276E512A0059BAC8 /* Assets.xcassets */,
 				EE08E422276E512A0059BAC8 /* Preview Content */,
@@ -142,7 +148,9 @@
 			files = (
 				EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */,
 				EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */,
+				EE214A35277397C4009F54C8 /* BlogView.swift in Sources */,
 				EE08E41D276E51290059BAC8 /* BucketListApp.swift in Sources */,
+				EE2F074C2772CADB00898241 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
