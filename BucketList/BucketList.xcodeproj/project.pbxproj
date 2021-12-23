@@ -13,6 +13,7 @@
 		EE08E424276E512A0059BAC8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE08E423276E512A0059BAC8 /* Preview Assets.xcassets */; };
 		EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */; };
 		EE8A46172773B42800403C82 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A46162773B42800403C82 /* Location.swift */; };
+		EE8A461927740B6F00403C82 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A461827740B6F00403C82 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Decodable.swift"; sourceTree = "<group>"; };
 		EE2F074A2772A00D00898241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EE8A46162773B42800403C82 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EE8A461827740B6F00403C82 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				EE2F074A2772A00D00898241 /* Info.plist */,
 				EE08E41C276E51290059BAC8 /* BucketListApp.swift */,
 				EE08E41E276E51290059BAC8 /* ContentView.swift */,
+				EE8A461827740B6F00403C82 /* EditView.swift */,
 				EE8A46162773B42800403C82 /* Location.swift */,
 				EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */,
 				EE08E420276E512A0059BAC8 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */,
+				EE8A461927740B6F00403C82 /* EditView.swift in Sources */,
 				EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */,
 				EE8A46172773B42800403C82 /* Location.swift in Sources */,
 				EE08E41D276E51290059BAC8 /* BucketListApp.swift in Sources */,
