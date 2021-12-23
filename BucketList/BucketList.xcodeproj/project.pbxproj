@@ -14,6 +14,7 @@
 		EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */; };
 		EE8A46172773B42800403C82 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A46162773B42800403C82 /* Location.swift */; };
 		EE8A461927740B6F00403C82 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A461827740B6F00403C82 /* EditView.swift */; };
+		EEDACD152775227700282543 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDACD142775227700282543 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE2F074A2772A00D00898241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EE8A46162773B42800403C82 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EE8A461827740B6F00403C82 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		EEDACD142775227700282543 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				EE2F074A2772A00D00898241 /* Info.plist */,
 				EE08E41C276E51290059BAC8 /* BucketListApp.swift */,
+				EEDACD142775227700282543 /* Result.swift */,
 				EE08E41E276E51290059BAC8 /* ContentView.swift */,
 				EE8A461827740B6F00403C82 /* EditView.swift */,
 				EE8A46162773B42800403C82 /* Location.swift */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEDACD152775227700282543 /* Result.swift in Sources */,
 				EE08E42B276FF8B20059BAC8 /* FileManager-Decodable.swift in Sources */,
 				EE8A461927740B6F00403C82 /* EditView.swift in Sources */,
 				EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */,
