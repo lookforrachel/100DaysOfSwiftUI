@@ -15,6 +15,8 @@
 		EE8A46172773B42800403C82 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A46162773B42800403C82 /* Location.swift */; };
 		EE8A461927740B6F00403C82 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A461827740B6F00403C82 /* EditView.swift */; };
 		EEDACD152775227700282543 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDACD142775227700282543 /* Result.swift */; };
+		EEDACD172776C05800282543 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDACD162776C05800282543 /* ContentView-ViewModel.swift */; };
+		EEDACD192776CBCE00282543 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDACD182776CBCD00282543 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		EE8A46162773B42800403C82 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EE8A461827740B6F00403C82 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		EEDACD142775227700282543 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		EEDACD162776C05800282543 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		EEDACD182776CBCD00282543 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				EE08E41C276E51290059BAC8 /* BucketListApp.swift */,
 				EEDACD142775227700282543 /* Result.swift */,
 				EE08E41E276E51290059BAC8 /* ContentView.swift */,
+				EEDACD182776CBCD00282543 /* FileManager-DocumentsDirectory.swift */,
+				EEDACD162776C05800282543 /* ContentView-ViewModel.swift */,
 				EE8A461827740B6F00403C82 /* EditView.swift */,
 				EE8A46162773B42800403C82 /* Location.swift */,
 				EE08E42A276FF8B20059BAC8 /* FileManager-Decodable.swift */,
@@ -156,6 +162,8 @@
 				EE8A461927740B6F00403C82 /* EditView.swift in Sources */,
 				EE08E41F276E51290059BAC8 /* ContentView.swift in Sources */,
 				EE8A46172773B42800403C82 /* Location.swift in Sources */,
+				EEDACD172776C05800282543 /* ContentView-ViewModel.swift in Sources */,
+				EEDACD192776CBCE00282543 /* FileManager-DocumentsDirectory.swift in Sources */,
 				EE08E41D276E51290059BAC8 /* BucketListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
