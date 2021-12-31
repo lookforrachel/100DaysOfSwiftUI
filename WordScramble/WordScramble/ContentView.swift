@@ -30,7 +30,10 @@ struct ContentView: View {
                     ForEach(usedWords, id: \.self) { word in HStack {
                         Image(systemName: "\(word.count).circle.fill")
                         Text(word)
-                    }
+                        }
+                    .accessibilityElement()
+                    .accessibilityLabel("\(word)")
+                    .accessibilityHint("\(word.count) letters")
                     }
                 }
             }
