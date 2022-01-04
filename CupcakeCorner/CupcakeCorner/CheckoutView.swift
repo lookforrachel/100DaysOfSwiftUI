@@ -17,6 +17,7 @@ struct CheckoutView: View {
     var body: some View {
         ScrollView {
             VStack {
+                Group {
                 AsyncImage(url: URL(string: "https://hws.dev/img/cupcakes@3x.jpg"), scale: 3) { image in
                     image
                         .resizable()
@@ -25,6 +26,7 @@ struct CheckoutView: View {
                     ProgressView()
                 }
                 .frame(height: 233)
+                }.accessibilityHidden(true)
                 
                 Text("Cost: \(order.cost, format: .currency(code: "USD"))")
                     .font(.title)
