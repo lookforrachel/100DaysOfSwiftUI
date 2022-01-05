@@ -36,9 +36,14 @@ struct ContentView: View {
                             Text(item.amount, format: .currency(code: myCurrency ?? "USD"))
                                 .foregroundColor(item.expenseStyle())
                         }
+                        .accessibilityElement()
+                        .accessibilityLabel(String(item.name))
+//                        .accessibilityValue(String(item.amount))
+//                        .accessibilityHint(item.type)
                     }
                     .onDelete(perform: removeItems)
                 }
+                
                 Section(header: Text("Business")) {
                     ForEach(expenses.items.filter {$0.type == "Business"}) { item in
                         HStack {
