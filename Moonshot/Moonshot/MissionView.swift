@@ -26,6 +26,7 @@ struct MissionView: View {
                             Image(crewMember.astronaut.id)
                                 .resizable()
                                 .frame(width: 104, height: 72)
+                                .accessibilityHidden(true)
                                 .clipShape(Capsule())
                                 .overlay(
                                     Capsule()
@@ -55,6 +56,7 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)
+                        .accessibilityHidden(true)
                     
                     Rectangle()
                         .frame(height: 2)

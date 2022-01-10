@@ -46,6 +46,9 @@ struct ContentView: View {
                                 .frame(maxWidth: .infinity)
                                 .background(.lightBackground)
                             }
+                            .accessibilityElement()
+                            .accessibilityLabel(mission.displayName)
+//                            .accessibilityValue(mission.formattedLaunchDate == "N/A" ? "Date not available" : mission.formattedLaunchDate)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
@@ -102,6 +105,7 @@ struct ContentView: View {
             .toolbar {
                 Button(action: {gridView.toggle()}, label: {
                     Image(systemName: gridView ? "list.star" : "square.grid.2x2.fill")
+                        .accessibilityHidden(true)
                 })
             }
             .navigationTitle("Moonshot")
