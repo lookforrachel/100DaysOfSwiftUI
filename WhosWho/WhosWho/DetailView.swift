@@ -15,10 +15,11 @@ struct DetailView: View {
         Image(uiImage: UIImage(data: profile.photo!)!)
             .resizable()
             .scaledToFit()
-            .frame(width: 100, height: 100)
-        Text(profile.name)
-        Text(profile.location)
-        Text(profile.description)
+            .frame(width: 300, height: 300)
+        Text("Name: \(profile.name)")
+            .font(.headline)
+        Text("Location: \(profile.location)")
+        Text("Description: \(profile.description)")
     }
 }
 
