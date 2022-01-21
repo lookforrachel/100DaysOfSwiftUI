@@ -11,6 +11,7 @@
 		EE484541278E5AEB001A62EB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE484540278E5AEB001A62EB /* Profile.swift */; };
 		EE533D862797A13300F3771B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE533D852797A13300F3771B /* DetailView.swift */; };
 		EE98F566278F558C004B78B9 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */; };
+		EEBE9BFB2799E6E8006D2DFE /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */; };
 		EEE8DACD278CFA1800973DC0 /* WhosWhoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DACC278CFA1800973DC0 /* WhosWhoApp.swift */; };
 		EEE8DACF278CFA1800973DC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DACE278CFA1800973DC0 /* ContentView.swift */; };
 		EEE8DAD1278CFA1900973DC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DAD0278CFA1900973DC0 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		EE484540278E5AEB001A62EB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		EE533D852797A13300F3771B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
 		EEE8DAC9278CFA1800973DC0 /* WhosWho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhosWho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DACC278CFA1800973DC0 /* WhosWhoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosWhoApp.swift; sourceTree = "<group>"; };
 		EEE8DACE278CFA1800973DC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				EE48453E278E58DB001A62EB /* AddImageDetailView.swift */,
 				EE533D852797A13300F3771B /* DetailView.swift */,
 				EE484540278E5AEB001A62EB /* Profile.swift */,
+				EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */,
 				EEE8DADA278D026C00973DC0 /* ImagePicker.swift */,
 				EEE8DADC278D027600973DC0 /* imageSaver.swift */,
 				EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */,
@@ -161,6 +164,7 @@
 				EEE8DACD278CFA1800973DC0 /* WhosWhoApp.swift in Sources */,
 				EE484541278E5AEB001A62EB /* Profile.swift in Sources */,
 				EE48453F278E58DB001A62EB /* AddImageDetailView.swift in Sources */,
+				EEBE9BFB2799E6E8006D2DFE /* Profiles.swift in Sources */,
 				EE98F566278F558C004B78B9 /* FileManager-DocumentsDirectory.swift in Sources */,
 				EEE8DADD278D027600973DC0 /* imageSaver.swift in Sources */,
 			);

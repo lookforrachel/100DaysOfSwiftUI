@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Profile: Identifiable, Codable, Equatable {
+struct Profile: Identifiable, Codable, Equatable, Comparable {
+    
     var id: UUID
     var name: String
     var location: String
@@ -18,6 +19,10 @@ struct Profile: Identifiable, Codable, Equatable {
     
     static func == (lhs: Profile, rhs: Profile) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    static func < (lhs: Profile, rhs: Profile) -> Bool {
+        lhs.name < rhs.name
     }
 }
 

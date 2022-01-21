@@ -12,10 +12,9 @@ struct DetailView: View {
     let profile: Profile
     
     var body: some View {
-        Image(uiImage: UIImage(data: profile.photo!)!)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 300, height: 300)
+        Image(data: profile.photo, placeholder: "Chickens")?
+            .profilePhotoLargeStyle()
+
         Text("Name: \(profile.name)")
             .font(.headline)
         Text("Location: \(profile.location)")
