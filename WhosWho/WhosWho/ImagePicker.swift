@@ -9,8 +9,9 @@ import PhotosUI
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
+    var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var image: UIImage?
-    
+        
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         
         var parent: ImagePicker
@@ -47,7 +48,7 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         //Use the Coordinator class as the delegate for our PHPickerViewController (report any user interaction (i.e. pressing cancel, selecting an image) to our coordinator)
         picker.delegate = context.coordinator
-        
+                
         // and send it back
         return picker
     }

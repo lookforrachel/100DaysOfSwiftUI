@@ -12,6 +12,8 @@
 		EE533D862797A13300F3771B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE533D852797A13300F3771B /* DetailView.swift */; };
 		EE98F566278F558C004B78B9 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */; };
 		EEBE9BFB2799E6E8006D2DFE /* Profiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */; };
+		EEBE9BFF279A3CFB006D2DFE /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE9BFE279A3CFB006D2DFE /* LocationFetcher.swift */; };
+		EEBE9C01279A556B006D2DFE /* UIImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE9C00279A556B006D2DFE /* UIImagePicker.swift */; };
 		EEE8DACD278CFA1800973DC0 /* WhosWhoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DACC278CFA1800973DC0 /* WhosWhoApp.swift */; };
 		EEE8DACF278CFA1800973DC0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DACE278CFA1800973DC0 /* ContentView.swift */; };
 		EEE8DAD1278CFA1900973DC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DAD0278CFA1900973DC0 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		EE533D852797A13300F3771B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profiles.swift; sourceTree = "<group>"; };
+		EEBE9BFE279A3CFB006D2DFE /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		EEBE9C00279A556B006D2DFE /* UIImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePicker.swift; sourceTree = "<group>"; };
 		EEE8DAC9278CFA1800973DC0 /* WhosWho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhosWho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DACC278CFA1800973DC0 /* WhosWhoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhosWhoApp.swift; sourceTree = "<group>"; };
 		EEE8DACE278CFA1800973DC0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,7 +76,9 @@
 				EE484540278E5AEB001A62EB /* Profile.swift */,
 				EEBE9BFA2799E6E7006D2DFE /* Profiles.swift */,
 				EEE8DADA278D026C00973DC0 /* ImagePicker.swift */,
+				EEBE9C00279A556B006D2DFE /* UIImagePicker.swift */,
 				EEE8DADC278D027600973DC0 /* imageSaver.swift */,
+				EEBE9BFE279A3CFB006D2DFE /* LocationFetcher.swift */,
 				EE98F565278F558C004B78B9 /* FileManager-DocumentsDirectory.swift */,
 				EEE8DAD0278CFA1900973DC0 /* Assets.xcassets */,
 				EEE8DAD2278CFA1900973DC0 /* Preview Content */,
@@ -159,7 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE8DADB278D026C00973DC0 /* ImagePicker.swift in Sources */,
+				EEBE9C01279A556B006D2DFE /* UIImagePicker.swift in Sources */,
 				EE533D862797A13300F3771B /* DetailView.swift in Sources */,
+				EEBE9BFF279A3CFB006D2DFE /* LocationFetcher.swift in Sources */,
 				EEE8DACF278CFA1800973DC0 /* ContentView.swift in Sources */,
 				EEE8DACD278CFA1800973DC0 /* WhosWhoApp.swift in Sources */,
 				EE484541278E5AEB001A62EB /* Profile.swift in Sources */,
@@ -300,6 +308,8 @@
 				DEVELOPMENT_TEAM = PK7RS8R8AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need access to the camera for taking photos";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To save your location when you create a profile entry";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +339,8 @@
 				DEVELOPMENT_TEAM = PK7RS8R8AP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need access to the camera for taking photos";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To save your location when you create a profile entry";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

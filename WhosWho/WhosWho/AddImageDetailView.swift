@@ -22,6 +22,12 @@ struct AddImageDetailView: View {
     @Environment(\.dismiss) var dismiss
     
     @ObservedObject var profiles: Profiles
+    
+    enum ImageSource {
+    case camera, library
+    }
+    
+    @State private var imageSource = ImageSource.library
 
     @State private var image: Image?
     @State private var inputImage: UIImage?
@@ -31,13 +37,14 @@ struct AddImageDetailView: View {
     @State private var description = ""
     
     @State private var showingImagePicker = false
+    
     var hasValidName: Bool {
         if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return false
         }
         return true
     }
-        
+            
     let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedProfiles")
     
     var body: some View {
@@ -47,7 +54,29 @@ struct AddImageDetailView: View {
                 Circle()
                     .fill(.secondary)
                     .frame(width: 190, height: 190)
-                Text("Select Image")
+                
+                HStack{
+                    Button{
+                        imageSource = .camera
+                        showingImagePicker = true
+                        print("library")
+                    } label: {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                    Button{
+                        imageSource = .library
+                        showingImagePicker = true
+                        print("camera")
+                    }label: {
+                        Image(systemName: "camera")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                    }
+                }
                 image?
                     .profilePhotoLargeStyle()
             }
@@ -55,7 +84,8 @@ struct AddImageDetailView: View {
                 showingImagePicker = true
             }
             .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $inputImage)
+//                ImagePicker(image: $inputImage)
+                UIImagePicker(sourceType: imageSource == .library ? .photoLibrary : .camera, selectedImage: $inputImage)
             }
             .onChange(of: inputImage) {_ in loadImage()}
 
