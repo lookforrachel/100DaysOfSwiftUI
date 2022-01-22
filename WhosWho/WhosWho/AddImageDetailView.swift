@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 extension Image {
     func profilePhotoLargeStyle() -> some View {
@@ -23,6 +24,12 @@ struct AddImageDetailView: View {
     
     @ObservedObject var profiles: Profiles
     
+    let locationFetcher = LocationFetcher()
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 1, longitude: 104), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 1))
+    @State private var selectedPlace: CLLocationCoordinate2D?
+    @State private var locationType = "Current Location"
+    @State private var locationTypes = ["Manual", "Current Location"]
+    
     enum ImageSource {
     case camera, library
     }
@@ -35,11 +42,13 @@ struct AddImageDetailView: View {
     @State private var name = ""
     @State private var location = ""
     @State private var description = ""
+    @State private var latitude = 0.0
+    @State private var longitude = 0.0
     
     @State private var showingImagePicker = false
     
-    var hasValidName: Bool {
-        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+    var isValidEntry: Bool {
+        if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || locationType == "Manual" && location.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return false
         }
         return true
@@ -54,34 +63,31 @@ struct AddImageDetailView: View {
                 Circle()
                     .fill(.secondary)
                     .frame(width: 190, height: 190)
-                
-                HStack{
-                    Button{
-                        imageSource = .camera
-                        showingImagePicker = true
-                        print("library")
-                    } label: {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                    }
-                    Button{
-                        imageSource = .library
-                        showingImagePicker = true
-                        print("camera")
-                    }label: {
-                        Image(systemName: "camera")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                    }
-                }
                 image?
                     .profilePhotoLargeStyle()
             }
-            .onTapGesture {
-                showingImagePicker = true
+            HStack{
+                Button{
+                    imageSource = .library
+                    showingImagePicker = true
+                    print("library")
+                } label: {
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                }
+                Button{
+                    imageSource = .camera
+                    showingImagePicker = true
+                    print("camera")
+                    
+                }label: {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                }
             }
             .sheet(isPresented: $showingImagePicker) {
 //                ImagePicker(image: $inputImage)
@@ -92,17 +98,58 @@ struct AddImageDetailView: View {
             VStack {
                 TextField("Name", text: $name)
                     .font(.headline)
-                TextField("Location", text: $location)
                 TextField("Description", text: $description)
+                
+                Section {
+                    Picker("Location Type:", selection: $locationType) {
+                        ForEach(locationTypes, id: \.self) {
+                            Text($0)
+                        }
+                    }
+//                    .onChange(of: locationType) {
+//                        if locationType =! "Manual" {
+//                            location = ""
+//                        } else { }
+//                    }
+                    
+                    
+                    TextField("Location (type in manually)", text: $location)
+                        .disabled(locationType != "Manual")
+                    
+                    Button("Use current location") {
+                        self.locationFetcher.start()
+                        if let location = self.locationFetcher.lastKnownLocation {
+                            selectedPlace = location
+                            mapRegion = MKCoordinateRegion(center: selectedPlace ?? CLLocationCoordinate2D(latitude: 1, longitude: 104), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 1))
+                            print("Your location is \(location)")
+                            print(selectedPlace ?? "unknown location")
+                        } else {
+                            print("Your location is unknown")
+                        }
+                    }
+                    .disabled(locationType != "Current Location")
+                }
+                
+                ZStack {
+                    Map(coordinateRegion: $mapRegion)
+                        .frame(width: 400, height: 100)
+                    Circle()
+                        .fill(.secondary)
+                        .opacity(0.3)
+                        .frame(width: 32, height: 32)
+                }
+
+                
             }
             .padding()
             
             HStack {
                 Button("Cancel", role: .cancel){
                     image = nil
+                    dismiss()
                 }
                 Button("Save") {
-                    var newProfile = Profile(id: UUID(), name: name, location: location, description: description)
+                    var newProfile = Profile(id: UUID(), name: name, location: location, latitude: mapRegion.center.latitude, longitude: mapRegion.center.longitude, description: description, locationTypeManual: locationType)
                     
                     if let jpegData = inputImage?.jpegData(compressionQuality: 0.8) {
                         newProfile.photo = jpegData
@@ -111,7 +158,7 @@ struct AddImageDetailView: View {
                     reset()
                     dismiss()
                 }
-                .disabled(hasValidName == false)
+                .disabled(isValidEntry == false)
             }
         }
     }
