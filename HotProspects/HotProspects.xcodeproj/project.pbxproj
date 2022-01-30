@@ -16,6 +16,7 @@
 		EEBE9C13279CE5A8006D2DFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBE9C12279CE5A8006D2DFE /* Assets.xcassets */; };
 		EEBE9C16279CE5A8006D2DFE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBE9C15279CE5A8006D2DFE /* Preview Assets.xcassets */; };
 		EEC7EF5F27A4F70B00836126 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7EF5E27A4F70B00836126 /* ImageSaver.swift */; };
+		EEC7EF6127A6319B00836126 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7EF6027A6319B00836126 /* FileManager-DocumentsDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		EEBE9C12279CE5A8006D2DFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEBE9C15279CE5A8006D2DFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EEC7EF5E27A4F70B00836126 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		EEC7EF6027A6319B00836126 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FileManager-DocumentsDirectory.swift"; path = "../../WhosWho/WhosWho/FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				EE6B2DBE27A0C12900C156C0 /* ProspectsView.swift */,
 				EE6B2DC227A0E5AE00C156C0 /* Prospect.swift */,
 				EE6B2DC027A0C13300C156C0 /* MeView.swift */,
+				EEC7EF6027A6319B00836126 /* FileManager-DocumentsDirectory.swift */,
 				EEC7EF5E27A4F70B00836126 /* ImageSaver.swift */,
 				EEBE9C12279CE5A8006D2DFE /* Assets.xcassets */,
 				EEBE9C14279CE5A8006D2DFE /* Preview Content */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6B2DC127A0C13300C156C0 /* MeView.swift in Sources */,
+				EEC7EF6127A6319B00836126 /* FileManager-DocumentsDirectory.swift in Sources */,
 				EEC7EF5F27A4F70B00836126 /* ImageSaver.swift in Sources */,
 				EE6B2DC327A0E5AE00C156C0 /* Prospect.swift in Sources */,
 				EE6B2DBF27A0C12900C156C0 /* ProspectsView.swift in Sources */,
