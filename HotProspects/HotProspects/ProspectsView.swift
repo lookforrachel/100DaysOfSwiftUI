@@ -13,11 +13,16 @@ struct ProspectsView: View {
     enum FilterType {
         case none, contacted, uncontacted
     }
+    enum SortType {
+        case name, mostRecent
+    }
     
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    @State private var isShowingConfirmation = false
     
     let filter: FilterType
+    @State private var sorter = SortType.mostRecent
     
     var body: some View {
         NavigationView {
@@ -29,6 +34,7 @@ struct ProspectsView: View {
                                 .font(.headline)
                             Text(prospect.emailAddress)
                                 .foregroundColor(.secondary)
+                            Text(prospect.formattedDate)
                         }
                         Spacer()
                         if prospect.isContacted {
@@ -65,14 +71,30 @@ struct ProspectsView: View {
             }
             .navigationTitle(title)
             .toolbar {
-                Button {
-                    isShowingScanner = true
-                } label: {
-                    Label("Scan", systemImage: "qrcode.viewfinder")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingScanner = true
+                    } label: {
+                        Label("Scan", systemImage: "qrcode.viewfinder")
+                    }
+                }
+                
+                ToolbarItem (placement: .navigationBarLeading) {
+                    Button {
+                        isShowingConfirmation = true
+                    } label: {
+                        Label("Sort", systemImage: "arrow.up.arrow.down.circle.fill")
+                    }
                 }
             }
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: handleScan)
+            }
+            .confirmationDialog("Sort entries", isPresented: $isShowingConfirmation) {
+                Button("name") { sorter = .name }
+                Button("most recent") { sorter = .mostRecent }
+            } message: {
+                Text("Sort by")
             }
         }
     }
@@ -89,13 +111,22 @@ struct ProspectsView: View {
     }
     
     var filteredProspects: [Prospect] {
+        var prospects: [Prospect]
+        
         switch filter {
         case .none:
-            return prospects.people
+            prospects = self.prospects.people
         case .contacted:
-            return prospects.people.filter { $0.isContacted}
+            prospects = self.prospects.people.filter { $0.isContacted}
         case .uncontacted:
-            return prospects.people.filter { !$0.isContacted}
+            prospects = self.prospects.people.filter { !$0.isContacted}
+        }
+        
+        switch sorter {
+        case .name:
+            return prospects.sorted()
+        case .mostRecent:
+            return prospects.sorted { $0.date > $1.date }
         }
     }
     

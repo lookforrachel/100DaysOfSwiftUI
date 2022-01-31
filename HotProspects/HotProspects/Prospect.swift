@@ -12,7 +12,12 @@ class Prospect: Identifiable, Codable, Comparable {
     var id = UUID()
     var name = "Anonymous"
     var emailAddress = ""
+    var date = Date()
     fileprivate (set) var isContacted = false
+    
+    var formattedDate: String {
+        date.formatted(date: .abbreviated, time: .shortened) ?? "N/A"
+    }
     
     static func < (lhs: Prospect, rhs: Prospect) -> Bool {
         lhs.name < rhs.name
@@ -20,6 +25,10 @@ class Prospect: Identifiable, Codable, Comparable {
     
     static func == (lhs: Prospect, rhs: Prospect) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    static func mostRecent (first: Int, second: Int) -> Bool {
+        return first > second
     }
 }
 
