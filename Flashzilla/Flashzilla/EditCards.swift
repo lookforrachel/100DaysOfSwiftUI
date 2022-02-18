@@ -65,6 +65,11 @@ struct EditCards: View {
         }
     }
     
+    func resetEntryFields() {
+        newPrompt = ""
+        newAnswer = ""
+    }
+    
     func addCard() {
         let trimmedPrompt = newPrompt.trimmingCharacters(in: .whitespaces)
         let trimmedAnswer = newAnswer.trimmingCharacters(in: .whitespaces)
@@ -73,6 +78,7 @@ struct EditCards: View {
         let card = Card(prompt: trimmedPrompt, answer: trimmedAnswer)
         cards.insert(card, at: 0)
         saveData()
+        resetEntryFields()
     }
     
     func removeCards(at offsets: IndexSet) {
