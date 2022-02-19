@@ -7,56 +7,46 @@
 
 import SwiftUI
 
-struct OuterView: View {
-    var body: some View {
-        Text("Top")
-        InnerView()
-            .background(.green)
-        Text("Bottom")
-    }
-}
-
-struct InnerView: View {
-    var body: some View {
-        HStack {
-            Text("Left")
-            GeometryReader { geo in
-                Text("Center")
-                    .background(.blue)
-                    .onTapGesture {
-                        print("Global center: \(geo.frame(in: .global).midX) x \(geo.frame(in: .global).midY)")
-                        print("Local center: \(geo.frame(in: .local).midX) x \(geo.frame(in: .local).midY)")
-                        print("Custom center: \(geo.frame(in: .named("Custom")).midX) x \(geo.frame(in: .named("Custom")).midY)")
-                    } 
-            }
-            .background(.orange)
-            
-            Text("Right")
-        }
-    }
-}
-
 struct ContentView: View {
-    var body: some View {
-        OuterView()
-            .background(.red)
-            .coordinateSpace(name: "Custom")
-//        VStack{
-//            GeometryReader { geo in
-//                Text("Hello World")
-//                    .frame(width: geo.size.width * 0.9)
-//                    .background(.red)
-//            }
-//            .background(.green)
-//            Text("More text")
-//            Text("More text")
-//            Text("More text")
-//            Text("More text")
-//
-//            Text("More text")
-//                .background(.blue)
-//        }
+    let colors: [Color] = [.red, .green, .blue, .orange, .pink, .purple, .yellow]
 
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(1..<20) { num in
+                    GeometryReader { geo in
+                        Text("Number \(num)")
+                            .font(.largeTitle)
+                            .padding()
+                            .background(.red)
+                        // proxy's frame in the global namespace, give me the left edge, the-x value from that. Give me a fraction of tt - / 8.
+                            .rotation3DEffect(.degrees(-geo.frame(in: .global).minX) / 8, axis: (x: 0, y: 1, z: 0))
+                    }
+                    .frame(width: 200, height: 200)
+                }
+            }
+        }
+        
+//        // reads all available screen space
+//        GeometryReader { fullView in
+//            ScrollView {
+//                ForEach(0..<50) { index in
+//
+//                    // reads current screen space for internal height row
+//                    GeometryReader { geo in
+//                        Text("Row #\(index)")
+//                            .font(.title)
+//                            .frame(maxWidth: .infinity)
+//                            .background(colors[index % 7])
+//
+//                        // minY - half available size / 5
+//                            .rotation3DEffect(.degrees(geo.frame(in: .global).minY - fullView.size.height / 2) / 5, axis: (x: 0, y: 1, z: 0))
+//
+//                    }
+//                    .frame(height: 40)
+//                }
+//            }
+//        }
     }
 }
 
