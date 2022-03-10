@@ -7,28 +7,40 @@
 
 import SwiftUI
 
-struct User: Identifiable {
+struct UserView: View {
+    var body: some View {
+        Group {
+            Text("Name: Paul")
+            Text("Country: England")
+            Text("Pets: Luna & Arya")
+        }
+        .font(.title)
+    }
     var id = "Taylor Swift"
 }
 
 struct ContentView: View {
-    @State private var selectedUser: User? = nil
-    @State private var isShowingUser = false
+    @Environment(\.horizontalSizeClass) var sizeClass
+//    @State private var layoutVertically = false
     
     var body: some View {
-        Text("Hello, world!")
-            .onTapGesture {
-                selectedUser = User()
-                isShowingUser = true
+        Group {
+            if sizeClass == .compact {
+                VStack(content: UserView.init)
+//                VStack{
+//                    UserView()
+//                }
+            } else {
+                HStack(content: UserView.init)
+//                HStack {
+//                    UserView()
+//                }
             }
-            .alert("Welcome", isPresented: $isShowingUser) { }
-//            .alert("Welcome", isPresented: $isShowingUser, presenting: selectedUser) { user in
-//                Button(user.id) { }
-//            }
-//            .sheet(item: $selectedUser) { user in
-//                Text(user.id)
-//            }
         }
+//        .onTapGesture {
+//            layoutVertically.toggle()
+//        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
