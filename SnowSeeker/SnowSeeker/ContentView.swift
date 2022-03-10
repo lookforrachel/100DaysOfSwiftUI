@@ -7,21 +7,28 @@
 
 import SwiftUI
 
+struct User: Identifiable {
+    var id = "Taylor Swift"
+}
+
 struct ContentView: View {
+    @State private var selectedUser: User? = nil
+    @State private var isShowingUser = false
+    
     var body: some View {
-        NavigationView{
-            NavigationLink {
-                Text("New secondary")
-            } label: {
-                Text("Hello, world!")
+        Text("Hello, world!")
+            .onTapGesture {
+                selectedUser = User()
+                isShowingUser = true
             }
-                .navigationTitle("Primary")
-            
-            Text("Secondary")
-            
-            Text("Tertiary")
+            .alert("Welcome", isPresented: $isShowingUser) { }
+//            .alert("Welcome", isPresented: $isShowingUser, presenting: selectedUser) { user in
+//                Button(user.id) { }
+//            }
+//            .sheet(item: $selectedUser) { user in
+//                Text(user.id)
+//            }
         }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
