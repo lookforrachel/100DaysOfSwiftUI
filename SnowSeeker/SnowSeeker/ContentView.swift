@@ -22,10 +22,16 @@ struct ContentView: View {
     
     @StateObject var favorites = Favorites()
     @State private var searchText = ""
+    @State private var showingSortSheet = false
+    enum Sorting {
+    case none, descending, ascending, country
+    }
+    
+    @State private var sorting = Sorting.none
     
     var body: some View {
         NavigationView {
-                List(filteredResorts) { resort in
+                List(sortedFilteredResorts) { resort in
                     NavigationLink {
                         ResortView(resort: resort)
                     } label: {
@@ -54,8 +60,32 @@ struct ContentView: View {
                         }
                     }
                 }
+                .toolbar{
+                    Button {
+                        showingSortSheet = true
+                    } label: {
+                        Image(systemName: "arrow.up.arrow.down")
+                    }
+                }
                 .navigationTitle("Resorts")
                 .searchable(text: $searchText, prompt: "Search for a resort")
+                .confirmationDialog("Sort By", isPresented: $showingSortSheet) {
+                    Button("Default"){ sorting = Sorting.none
+                        print(sorting)
+                    }
+                    Button("A - Z"){ sorting = Sorting.ascending
+                        print(sorting)
+
+                    }
+                    Button("Z- A "){ sorting = Sorting.descending
+                        print(sorting)
+
+                    }
+                    Button("By Country"){ sorting = Sorting.country
+                        print(sorting)
+
+                    }
+                } message: {}
             
             WelcomeView()
         }
@@ -66,7 +96,28 @@ struct ContentView: View {
         if searchText.isEmpty {
             return resorts
         } else {
-            return resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText)}
+            return resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    var sortedFilteredResorts: [Resort] {
+        if sorting == Sorting.ascending {
+            return filteredResorts.sorted {
+                $0.name < $1.name
+            }
+        }
+        else if sorting == Sorting.descending {
+            return filteredResorts.sorted {
+                $1.name < $0.name
+            }
+        } else if sorting == Sorting.country {
+            return filteredResorts.sorted {
+                $0.country < $1.country
+            }
+        }
+        else {
+            return filteredResorts
         }
     }
 }
